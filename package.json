@@ -1,30 +1,31 @@
 {
-  "name": "expense_tracker_react",
-  "version": "1.0.0",
-  "description": "Backend for expense tracker",
-  "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/nucmatt/expense_tracker_react.git"
-  },
-  "author": "Matthew Wessel",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/nucmatt/expense_tracker_react/issues"
-  },
-  "homepage": "https://github.com/nucmatt/expense_tracker_react#readme",
-  "dependencies": {
-    "colors": "^1.4.0",
-    "dotenv": "^9.0.0",
-    "express": "^4.17.1",
-    "mongoose": "^5.12.7",
-    "morgan": "^1.10.0"
-  },
-  "devDependencies": {
-    "concurrently": "^6.0.2",
-    "nodemon": "^2.0.7"
-  }
+	"name": "expense_tracker_react",
+	"version": "1.0.0",
+	"description": "Backend for expense tracker",
+	"main": "server.js",
+	"scripts": {
+		"start": "node server",
+		"server": "nodemon server"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/nucmatt/expense_tracker_react.git"
+	},
+	"author": "Matthew Wessel",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/nucmatt/expense_tracker_react/issues"
+	},
+	"homepage": "https://github.com/nucmatt/expense_tracker_react#readme",
+	"dependencies": {
+		"colors": "^1.4.0",
+		"dotenv": "^9.0.0",
+		"express": "^4.17.1",
+		"mongoose": "^5.12.7",
+		"morgan": "^1.10.0"
+	},
+	"devDependencies": {
+		"concurrently": "^6.0.2",
+		"nodemon": "^2.0.7"
+	}
 }
