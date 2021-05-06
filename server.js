@@ -1,12 +1,12 @@
-const express = require('express');
-const dotenv = require('dotenv');
+import express from 'express';
+import { config } from 'dotenv';
 // Colors allows for coloring your console messages
-const colors = require('colors');
-const morgan = require('morgan');
+import colors from 'colors';
+import morgan from 'morgan';
 
-dotenv.config({ path: './config/config.env'});
+config({ path: './config/config.env'});
 
-const transactions = require('./routes/transactions');
+import transactions from './routes/transactions';
 
 const app = express();
 
