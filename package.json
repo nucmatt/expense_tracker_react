@@ -2,7 +2,8 @@
 	"name": "expense_tracker_react",
 	"version": "1.0.0",
 	"description": "Backend for expense tracker",
-	"main": "server.js",
+	"type": "module",
+	"exports": "./server.js",
 	"scripts": {
 		"start": "node server",
 		"server": "nodemon server"
