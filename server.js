@@ -3,8 +3,11 @@ import { config } from 'dotenv';
 // Colors allows for coloring your console messages
 import colors from 'colors';
 import morgan from 'morgan';
+import connectDB from './config/db.js';
 
 config({ path: './config/config.env' });
+
+connectDB();
 
 import transactions from './routes/transactions.js';
 
