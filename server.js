@@ -13,6 +13,8 @@ import transactions from './routes/transactions.js';
 
 const app = express();
 
+app.use(express.json());
+
 // app.get('/', (req, res) => res.send('Hello'));
 // This app.use statement mounts the transactions route brought in above.
 app.use('/api/v1/transactions', transactions);
