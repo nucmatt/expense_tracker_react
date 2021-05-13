@@ -13,7 +13,8 @@ export const Transaction = ({ transaction }) => {
 			</span>
 			<button
 				className='delete-btn'
-				onClick={() => deleteTransaction(transaction.id)}
+				// MongoDB adds an underscore in front of the id property so you must use _id here instead of just id as in the React(no backend) version of the project.
+				onClick={() => deleteTransaction(transaction._id)}
 			>
 				x
 			</button>

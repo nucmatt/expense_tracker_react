@@ -11,7 +11,8 @@ export default (state, action) => {
 			return {
 				...state,
 				transactions: state.transactions.filter(
-					(transaction) => transaction.id !== action.payload
+					// Remember, MongoDB uses _id for ids so any calls to a MongoDB database need to have the _id vs id.
+					(transaction) => transaction._id !== action.payload
 				),
 			};
 		case 'ADD_TRANSACTION':
@@ -22,7 +23,7 @@ export default (state, action) => {
 		case 'TRANSACTION_ERROR':
 			return {
 				...state,
-				error: action.payload
+				error: action.payload,
 			};
 		default:
 			return state;
