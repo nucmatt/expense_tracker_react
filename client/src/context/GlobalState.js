@@ -50,11 +50,27 @@ export const GlobalProvider = ({ children }) => {
 			});
 		}
 	}
-	function addTransaction(transaction) {
-		dispatch({
-			type: 'ADD_TRANSACTION',
-			payload: transaction,
-		});
+	async function addTransaction(transaction) {
+		const config = {
+			header: {
+				'Content-Type': 'application/json',
+			},
+		};
+
+		try {
+			const res = await axios.post('api/v1/transactions', transaction, config);
+
+			dispatch({
+				type: 'ADD_TRANSACTION',
+				// Remember the response object has a data property and the body of the response also has a data property, hence to get at the body's data property you need res.data.data
+				payload: res.data.data,
+			});
+		} catch (error) {
+			dispatch({
+				type: 'TRANSACTION_ERROR',
+				payload: error.response.data.error,
+			});
+		}
 	}
 
 	return (
