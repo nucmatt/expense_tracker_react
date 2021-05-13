@@ -40,7 +40,9 @@ export const addTransaction = async (req, res, next) => {
 		// console.log(error);
 		if (error.name === 'ValidationError') {
 			// Object is part of the error response. You can see everything contained in the error using the console log commented out above.
-			const messages = Object.values(error.errors).map((value) => value.message);
+			const messages = Object.values(error.errors).map(
+				(value) => value.message
+			);
 
 			return res.status(400).json({
 				success: false,
@@ -59,5 +61,27 @@ export const addTransaction = async (req, res, next) => {
 // @route DELETE /api/v1/transactions/:id
 // @access Public
 export const deleteTransaction = async (req, res, next) => {
-	res.send('DELETE transaction');
+	// res.send('DELETE transaction');
+	try {
+		const transaction = await Transaction.findById(req.params.id);
+
+		if (!transaction) {
+			return res.status(404).json({
+				success: false,
+				error: 'No transaction found',
+			});
+		}
+
+		await transaction.remove();
+
+		return res.status(200).json({
+			success: true,
+			data: {},
+		});
+	} catch (error) {
+		return res.status(500).json({
+			success: false,
+			error: 'Server Error',
+		});
+	}
 };
